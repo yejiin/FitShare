@@ -1,6 +1,32 @@
-<template>
-  <div>
-      shopping room
+<template> 
+  <div id="session">
+    <div id="session" class="" v-if="session">
+      <!-- 화상화면 -->
+			<div id="video-container" class="d-flex flex-row">
+        <room-video :stream-manager="publisher" @click="updateMainVideoStreamManager(publisher)"/>
+        <room-video v-for="sub in subscribers" :key="sub.stream.connection.connectionId" :stream-manager="sub" @click="updateMainVideoStreamManager(sub)"/>
+      </div>
+      <!-- <div id="main-video" class="col-md-6">  
+				<user-video :stream-manager="mainStreamManager"/>
+			</div> -->
+
+      <!-- 나머지 컴포넌트 -->
+      <div class="components-container d-flex flex-row">
+        <group-chat class="group-chat"></group-chat>
+        <div>
+          <shopping-site class="shopping-site"></shopping-site>
+          <!-- 화상회의 버튼 -->
+          <div class="buttons">
+            <button v-if="isAudio" class="btn shadow-none" @click="offAudio()"><i class="bi bi-mic-mute-fill"></i></button>
+            <button v-if="!isAudio" class="btn shadow-none" @click="onAudio()"><i class="bi bi-mic-fill"></i></button>
+            <button v-if="isVideo" class="btn shadow-none" @click="offVideo()"><i class="bi bi-camera-video-off-fill"></i></button>
+            <button v-if="!isVideo" class="btn shadow-none" @click="onVideo()"><i class="bi bi-camera-video-fill"></i></button>
+            <input class="btn shadow-none" type="button" id="buttonLeaveSession" @click="leaveSession" value="나가기">
+          </div>
+        </div>
+        <closet class="closet"></closet>
+      </div>
+		</div>
   </div>
 </template>
 
