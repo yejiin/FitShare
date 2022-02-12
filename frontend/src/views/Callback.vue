@@ -69,7 +69,7 @@ export default {
     };
 
     const getNaverAccount = async (naverToken) => {
-      let path = "http://i6a405.p.ssafy.io:8081/api/v1/auth/naver/login";
+      let path = "https://i6a405.p.ssafy.io/api/v1/auth/naver/login";
       await axios
         .get(path, {
           params: {
@@ -77,7 +77,7 @@ export default {
           },
         })
         .then((res) => {
-          if (res.data.statusCode === 201) {
+          if (res.data.statusCode === 200) {
             console.log("네이버 계정 정보");
             console.log(res);
             // Cookie에 'accessToken' 설정
@@ -112,7 +112,7 @@ export default {
     };
 
     const getNaverToken = async (naverCode, naverState) => {
-      let path = `http://i6a405.p.ssafy.io:8081/api/v1/auth/naver/token?code=${naverCode}&state=${naverState} `;
+      let path = `https://i6a405.p.ssafy.io/api/v1/auth/naver/token?code=${naverCode}&state=${naverState} `;
       await axios
         .get(path)
         .then((res) => {
@@ -132,6 +132,7 @@ export default {
     };
 
     return {
+      state,
       getKakakoToken,
       getNaverToken,
       getKakaoAccount,
