@@ -10,7 +10,7 @@ export const user = {
     user_name: "",
     user_profileURI: "",
     refreshToken: "",
-    isLogin: false,
+    isLogin: true,
   }),
 
   mutations: {
@@ -34,7 +34,7 @@ export const user = {
       state.user_name = "";
       state.user_profileURI = "";
       state.refreshToken = "";
-      state.isLogin = false;
+      state.isLogin = true;
     },
   },
   getters: {
