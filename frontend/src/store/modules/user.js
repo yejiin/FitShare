@@ -6,9 +6,10 @@ import { useCookies } from "vue3-cookies";
 export const user = {
   namespaced: true,
   state: () => ({
-    user_id: "",
-    user_name: "",
-    user_profileURI: "",
+    user_id: "4",
+    user_name: "허재석",
+    user_profileURI:
+      "http://k.kakaocdn.net/dn/cfxpzD/btq7C1j8mcj/d7YuVb1uKvnIQog1KuFWf0/img_640x640.jpg",
     refreshToken: "",
     isLogin: true,
   }),
@@ -30,9 +31,10 @@ export const user = {
       state.isLogin = isLogin;
     },
     INIT_USER: (state) => {
-      state.user_id = "";
-      state.user_name = "";
-      state.user_profileURI = "";
+      state.user_id = "4";
+      state.user_name = "허재석";
+      state.user_profileURI =
+        "http://k.kakaocdn.net/dn/cfxpzD/btq7C1j8mcj/d7YuVb1uKvnIQog1KuFWf0/img_640x640.jpg";
       state.refreshToken = "";
       state.isLogin = true;
     },
