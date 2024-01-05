@@ -90,8 +90,13 @@ export default {
       const minute = date.slice(14, 16);
 
       if (state.today == messageDate) {
-        if (hour > 12) {
-          return " 오후 " + String(Number(hour) - 12) + ":" + minute;
+        if (hour >= 12) {
+          if(hour > 12){
+            return " 오후 " + String(Number(hour) - 12) + ":" + minute;
+          }
+          else{
+            return " 오후 " + String(Number(hour)) + ":" + minute;
+          }
         } else {
           return " 오전 " + hour + ":" + minute;
         }
@@ -99,8 +104,13 @@ export default {
         const month = date.slice(5, 7);
         const day = date.slice(8, 10);
         const changedDate = month + "/" + day;
-        if (hour > 12) {
-          return changedDate + " 오후 " + String(Number(hour) - 12) + ":" + minute;
+        if (hour >= 12) {
+          if(hour > 12){
+            return changedDate + " 오후 " + String(Number(hour) - 12) + ":" + minute;
+            }
+          else{
+            return changedDate + " 오후 " + String(Number(hour)) + ":" + minute;  
+          }
         } else {
           return changedDate + " 오전 " + hour + ":" + minute;
         }
